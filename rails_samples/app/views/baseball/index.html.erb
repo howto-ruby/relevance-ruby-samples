@@ -1,0 +1,7 @@
+<h2>Rails Caching</h2>
+
+<ul>
+<li>View a team <%= link_to "uncached",  :action => "show_team", :id => @team %></li>
+<li>View a team <%= link_to "cached",  :action => "show_team_cached", :id => @team %></li>  
+<li>Modify <%= link_to "a team", :action => "modify_team", :id => @team %> (bad idea from a link!)</li>
+</ul>

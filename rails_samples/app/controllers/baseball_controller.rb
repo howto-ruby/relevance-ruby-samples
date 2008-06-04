@@ -1,4 +1,7 @@
 class BaseballController < ApplicationController
+  def index
+    @team = Team.find(:first)
+  end
   # codecite no cache
   def show_team
     @team = Team.find(params[:id])
