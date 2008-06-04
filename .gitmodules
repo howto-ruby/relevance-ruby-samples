@@ -7,3 +7,6 @@
 [submodule "rails_samples/vendor/plugins/rspec-rails"]
 	path = rails_samples/vendor/plugins/rspec-rails
 	url = git://github.com/dchelimsky/rspec-rails.git
+[submodule "rails_samples/vendor/plugins/tarantula"]
+	path = rails_samples/vendor/plugins/tarantula
+	url = git://github.com/relevance/tarantula.git
