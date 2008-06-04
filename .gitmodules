@@ -1,3 +1,9 @@
 [submodule "rails_samples/vendor/rails"]
 	path = rails_samples/vendor/rails
 	url = git://github.com/rails/rails.git
+[submodule "rails_samples/vendor/plugins/rspec"]
+	path = rails_samples/vendor/plugins/rspec
+	url = git://github.com/dchelimsky/rspec.git
+[submodule "rails_samples/vendor/plugins/rspec-rails"]
+	path = rails_samples/vendor/plugins/rspec-rails
+	url = git://github.com/dchelimsky/rspec-rails.git
