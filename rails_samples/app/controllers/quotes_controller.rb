@@ -51,7 +51,7 @@ class QuotesController < ApplicationController
         format.html { redirect_to(@quote) }
         format.xml  { render :xml => @quote, :status => :created, :location => @quote }
       else
-        format.html { render :action => "new" }
+        format.html { render :template => "new" }
         format.xml  { render :xml => @quote.errors, :status => :unprocessable_entity }
       end
     end
@@ -68,7 +68,7 @@ class QuotesController < ApplicationController
         format.html { redirect_to(@quote) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :template => "edit" }
         format.xml  { render :xml => @quote.errors, :status => :unprocessable_entity }
       end
     end

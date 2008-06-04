@@ -1,0 +1,3 @@
+[submodule "rails_samples/vendor/rails"]
+	path = rails_samples/vendor/rails
+	url = git://github.com/rails/rails.git
