@@ -2,7 +2,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.find(:all)
+    if (!params[:search].blank?)
+      # codecite SQL injection flaw
+      @posts = Post.find(:all, :conditions => "title = '#{params[:search]}'")
+      # codecite SQL injection flaw
+    else
+      @posts = Post.find(:all)
+    end
 
     respond_to do |format|
       format.html # index.html.erb

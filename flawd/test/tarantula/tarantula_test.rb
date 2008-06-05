@@ -12,6 +12,11 @@ class TarantulaTest < ActionController::IntegrationTest
       :output => "<script>Sneaky code</script>"
     }
     XssFormSubmission.attacks << attack
+    XssFormSubmission.attacks << { 
+      :name => :sql_injection,
+      :input => "a'; DROP TABLE posts;",
+      :output => "[[DONT CARE]]"
+    }
     t.handlers << XssDocumentCheckerHandler.new
     t.fuzzers << XssFormSubmission
     t.times_to_crawl = 2
