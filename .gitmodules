@@ -10,3 +10,6 @@
 [submodule "rails_samples/vendor/plugins/tarantula"]
 	path = rails_samples/vendor/plugins/tarantula
 	url = git://github.com/relevance/tarantula.git
+[submodule "flawd/vendor/plugins/tarantula"]
+	path = flawd/vendor/plugins/tarantula
+	url = git://github.com/relevance/tarantula.git
