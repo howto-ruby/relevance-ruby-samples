@@ -1,8 +1,0 @@
-config/database.yml
-coverage
-rcov_tmp
-previous_failures.txt
-tmp
-log/*
-TAGS
-
