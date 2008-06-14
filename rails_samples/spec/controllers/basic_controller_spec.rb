@@ -10,7 +10,7 @@ describe BasicController do
   
   it "should secure secret with basic auth" do
     get :secret
-    puts response.code.should == "401"
+    response.code.should == "401"
   end
   
   # may be non trivial, see http://railsforum.com/viewtopic.php?pid=42118
