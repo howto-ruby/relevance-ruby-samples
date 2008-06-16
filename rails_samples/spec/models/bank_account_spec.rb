@@ -48,5 +48,33 @@ describe BankAccount do
     savings.calculate_interest.should == 140.0
   end
   # codecite subclass methods
+  
+  # codecite overdrawn_simple
+  it "should have an overdrawn method for finding overdrawn accounts" do
+    od_checking = bank_accounts(:overdrawn_checking)
+    od_savings = bank_accounts(:overdrawn_savings)
+    BankAccount.overdrawn.should have(2).elements
+    BankAccount.overdrawn.should include(od_checking, od_savings)
+    CheckingAccount.overdrawn.should == [od_checking]
+    SavingsAccount.overdrawn.should   == [od_savings]
+  end
+  # codecite overdrawn_simple
+  
+  # codecite overdrawn_by
+  it "should have an overdrawn_by method for finding accounts overdrawn by a supplied threshold" do
+    od_checking = bank_accounts(:overdrawn_checking)
+    od_savings = bank_accounts(:overdrawn_savings)
+    BankAccount.overdrawn_by(100).should == [od_checking]
+    BankAccount.overdrawn_by(50).should have(2).elements
+    BankAccount.overdrawn_by(50).should include(od_checking, od_savings)
+  end
+  # codecite overdrawn_by
+
+  # codecite proxy_options overdrawn_by 
+  it "should set query conditions properly when the overdrawn_by method is called" do
+    expected_options = { :conditions => ['balance <= ?', -100] }
+    BankAccount.overdrawn_by(100).proxy_options.should == expected_options
+  end
+  # codecite proxy_options overdrawn_by 
 
 end

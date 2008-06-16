@@ -27,4 +27,17 @@ actual_savings_2:
   rate: 4.25
   type: SavingsAccount
 # codecite sti
+# codecite overdrawn
+overdrawn_checking:
+  id: 6
+  owner: Tom
+  balance: -400
+  type: CheckingAccount
+overdrawn_savings:
+  id: 7
+  owner: Susan
+  balance: -50
+  rate: 3.5
+  type: SavingsAccount
+# codecite overdrawn
   
