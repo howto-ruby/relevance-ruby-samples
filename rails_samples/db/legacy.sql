@@ -16,6 +16,7 @@
 -- Table structure for table `hrMEM002`
 --
 -- codecite legacy
+/* This is the MySQL version; see below for SQLite3. */
 DROP TABLE IF EXISTS `hrMEM002`;
 CREATE TABLE `hrMEM002` (
   `memID` int(11) NOT NULL auto_increment,
@@ -37,6 +38,26 @@ CREATE TABLE `hrPOL001` (
   `polHOLDER` int(11) default NULL,
   PRIMARY KEY  (`polID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+/* or, for SQLite3:
+
+DROP TABLE IF EXISTS `hrMEM002`;
+CREATE TABLE `hrMEM002` (
+  `memID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  `memFN` varchar(50) default NULL,
+  `memLN` varchar(50) default NULL,
+  `memSSN` int(9) default NULL
+);
+
+DROP TABLE IF EXISTS `hrPOL001`;
+CREATE TABLE `hrPOL001` (
+  `polID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  `polTYPE` varchar(50) default NULL,
+  `polNUMBER` varchar(50) default NULL,
+  `polHOLDER` int(11) default NULL
+);
+
+*/
 -- codecite legacy
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

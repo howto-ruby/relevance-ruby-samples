@@ -48,7 +48,18 @@ module ActiveRecord
         # codecite last note
         # codecite all notes
         def all_notes
-          self.notes.inject("") {|result, note| result += "#{note.to_signed}\n"}
+          result = ""
+          self.notes.each do |note|
+            result += "#{note.to_signed}\n"
+          end
+          result
+        end
+        
+        # This is a different version of all_notes that is more
+        # idiomatic and "Rubyish".  Read the documentation for 
+        # Enumerable#inject to see what's going on.
+        def all_notes_using_inject
+          self.notes.inject(''){|result, note| result += "#{note.to_signed}\n"}
         end
         # codecite all notes
       end 

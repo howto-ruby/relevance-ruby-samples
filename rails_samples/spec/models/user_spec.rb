@@ -32,6 +32,10 @@ describe User do
       "can't be blank", 
       "is too short (minimum is 3 characters)"
     ]
+    # Set[obj1, obj2], is a more concise syntax 
+    # for Set.new(obj1, obj2).  We use sets so
+    # that the test doesn't depend on the order
+    # of the messages.
   end
   # codecite validation tests
   

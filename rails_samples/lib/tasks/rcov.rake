@@ -9,14 +9,14 @@ namespace :rcov do
   
   Rcov::RcovTask.new(:unit_for_combined_report => [:clean, 'db:migrate', 'db:test:prepare']) do |t|
     t.test_files = FileList['test/unit/**/*_test.rb']
-    t.rcov_opts = ["--aggregate 'rcov_tmp'", "--html", "--rails", "--exclude 'db,lib'", '--sort coverage']
+    t.rcov_opts = ["-I test", "--aggregate 'rcov_tmp'", "--html", "--rails", "--exclude 'db,lib'", '--sort coverage']
     t.output_dir = rcov_output + '/unit'
   end
   
   desc "Generate combined unit and functional test coverage report"
   Rcov::RcovTask.new(:unit_and_functional => :unit_for_combined_report) do |t|
     t.test_files = FileList['test/functional/**/*_test.rb']
-    t.rcov_opts = ["--aggregate 'rcov_tmp'", '--html', '--rails', "--exclude 'db,lib'", '--sort coverage']
+    t.rcov_opts = ["-I test", "--aggregate 'rcov_tmp'", '--html', '--rails', "--exclude 'db,lib'", '--sort coverage']
     t.output_dir = rcov_output + '/unit_and_functional'
   end
   
