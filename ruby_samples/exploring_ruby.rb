@@ -10,8 +10,8 @@ words.each {|i| puts i}
 # codecite array
 
 # codecite hash
-ordinal_cordinal = {"one"=>"first", "two"=>"second", "three"=>"third"}
-ordinal_cordinal.each {|k,v| puts "#{k} comes #{v}"}
+cardinal_ordinal = {"one"=>"first", "two"=>"second", "three"=>"third"}
+cardinal_ordinal.each {|k,v| puts "#{k} comes #{v}"}
 # codecite hash
 
 # codecite circle
