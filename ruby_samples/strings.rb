@@ -33,7 +33,10 @@ puts s.sub('jumped', 'leaped')
 puts s.sub('the', 'a')
 
 # codecite a
-puts s.gsub('the', 'a')
+puts s.gsub(/the/i, 'a')
+
+# codecite Aa
+puts s.gsub(/the/i) {|s| s == "The" ? "A" : "a" }
 
 # codecite period
 puts s << "."
