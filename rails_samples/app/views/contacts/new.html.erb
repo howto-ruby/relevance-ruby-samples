@@ -6,11 +6,11 @@
 <% form_for(@contact) do |f| %>
   <%# codecite new %>
   <p>
-    <label>First Name:</label>
+    <%= f.label :first_name %>
     <%= f.text_field :first_name %>
   </p>
   <p>
-    <label>Last Name:</label>
+    <%= f.label :last_name %>
     <%= f.text_field :last_name %>
   </p>
   <%# codecite new %>
