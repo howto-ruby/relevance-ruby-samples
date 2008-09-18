@@ -1,4 +1,5 @@
 <% form_tag do -%>
+  <input name="authenticity_token" type="hidden" value="" />
 <%# codecite flash notice %>
 <% if flash[:notice] %>
   <p class="notice"><%= flash[:notice]%></p>
