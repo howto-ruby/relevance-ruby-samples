@@ -1,6 +1,4 @@
 # codecite create connection
-require 'rubygems'
-gem 'activerecord'
 require 'activerecord'
 ActiveRecord::Base.establish_connection :adapter=>'mysql', 
                                         :database=>'rails_samples_development'
@@ -15,7 +13,7 @@ end
 # codecite create BaseballPlayer
 
 # codecite create instances
-['Stu Halloway','Justin Gehtland', 'Glenn Vanderburg'].each do |name|
+['Stu Halloway', 'Justin Gehtland', 'Glenn Vanderburg'].each do |name|
   fn, ln = name.split(' ')
   BaseballPlayer.create(:first_name=>fn, :last_name=>ln)
 end
@@ -24,7 +22,7 @@ BaseballPlayer.new(:first_name=>'Ben', :last_name=>'Franklin').save
 
 # codecite enumerate
 puts "Total of #{BaseballPlayer.count} people"
-BaseballPlayer.find(:all, :order=>'last_name').each do |p|
+BaseballPlayer.all(:order=>'last_name').each do |p|
   puts "Found #{p}"
 end
 # codecite enumerate
@@ -37,7 +35,7 @@ puts "Find Nobody == #{p}"
 # codecite find_by_last_name
 
 # codecite find first
-p = BaseballPlayer.find(:first, :conditions=>['first_name = ?', 'Stu'])
+p = BaseballPlayer.first(:conditions => ['first_name = ?', 'Stu'])
 puts "Find (:conditions) found #{p}"
 # codecite find first
 

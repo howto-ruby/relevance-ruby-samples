@@ -1,6 +1,4 @@
 # codecite connection
-require 'rubygems'
-gem 'activerecord'
 require 'activerecord'
 ActiveRecord::Base.establish_connection :adapter=>'mysql', 
                                         :database=>'rails_samples_development'
@@ -17,8 +15,8 @@ end
 class BaseballPlayer
   before_save :normalize_names
   def normalize_names
-    first_name.gsub!(/\s*(.*)\s*/, '\1') if first_name
-    last_name.gsub!(/\s*(.*)\s*/, '\1') if last_name
+    first_name.strip! if first_name
+    last_name.strip! if last_name
   end
 end
 # codecite before_save
@@ -47,8 +45,8 @@ puts_eval(player,'first_name')
 # codecite test contacts
 
 # codecite find
-player_1 = BaseballPlayer.find(:first)
-player_2 = BaseballPlayer.find(:first)
+player_1 = BaseballPlayer.first
+player_2 = BaseballPlayer.first
 # codecite find
 
 # codecite conflicting changes

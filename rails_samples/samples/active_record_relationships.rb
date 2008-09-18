@@ -1,6 +1,4 @@
 # codecite connection
-require 'rubygems'
-gem 'activerecord'
 require 'activerecord'
 ActiveRecord::Base.establish_connection :adapter=>'mysql', 
                                         :database=>'rails_samples_development'
