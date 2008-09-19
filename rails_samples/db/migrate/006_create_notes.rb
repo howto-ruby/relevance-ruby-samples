@@ -9,11 +9,7 @@ class CreateNotes < ActiveRecord::Migration
   end
 
   def self.down
-    begin
-      drop_table :notes
-    rescue
-      puts "NOTES already deleted"
-    end
+    drop_table :notes
   end
 end
 # codecite migration

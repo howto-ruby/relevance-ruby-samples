@@ -41,23 +41,23 @@ describe "Contacts Controller", ActionController::TestCase do
   
 
   def test_should_show_contact
-    get :show, :id => 1
+    get :show, :id => contacts(:justin).id
     assert_response :success
   end
 
   def test_should_get_edit
-    get :edit, :id => 1
+    get :edit, :id => contacts(:justin).id
     assert_response :success
   end
 
   def test_should_update_contact
-    put :update, :id => 1, :contact => { }
+    put :update, :id => contacts(:justin).id, :contact => { }
     assert_redirected_to contact_path(assigns(:contact))
   end
 
   def test_should_destroy_contact
     assert_difference(Contact, :count, -1) do
-      delete :destroy, :id => 1
+      delete :destroy, :id => contacts(:justin).id
     end
 
     assert_redirected_to contacts_path
