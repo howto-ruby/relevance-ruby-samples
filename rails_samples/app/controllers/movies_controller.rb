@@ -7,7 +7,7 @@ class MoviesController < ApplicationController
   
   # codecite index
   def index
-    @movies = Movie.find(:all, :order => "year")
+    @movies = Movie.all(:order => "year")
   end
   # codecite index
   
@@ -29,7 +29,7 @@ class MoviesController < ApplicationController
       # codecite respond_to
       # codecite format.js
       format.js { 
-        @movies = Movie.find(:all, :order => "year")
+        @movies = Movie.all(:order => "year")
         render(:update) { |page|
           page.replace 'movie_list', :partial => "movie_list"
           page.replace 'add_movie', :partial => "add_movie_link"

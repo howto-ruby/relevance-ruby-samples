@@ -2,11 +2,11 @@
 
 <% remote_form_for(@movie) do |f| %>
   <p>
-    <label>Name:</label>
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </p>
   <p>
-    <label>Year:</label>
+    <%= f.label :year %>
     <%= f.text_field :year %>
   </p>
 

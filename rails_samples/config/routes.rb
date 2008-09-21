@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :contacts
   map.resources :changes
   
+  # codecite movies
   map.resources :movies
 
   # codecite documents_changes
