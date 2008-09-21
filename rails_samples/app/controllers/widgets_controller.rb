@@ -5,11 +5,12 @@ class WidgetsController < ApplicationController
 
   # codecite require_login
   before_filter :require_login, :except => "login"
-  # codecite require_login
   
   def require_login
     redirect_to :action => "login" unless session[:username]
   end
+  hide_action :require_login
+  # codecite require_login
   
   # codecite dump
   def dump

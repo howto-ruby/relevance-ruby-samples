@@ -10,9 +10,9 @@
 <%#codecite list %>
 <% for widget in @widgets %>
   <tr>
-    <td><%= widget.name %></td>
-    <td><%= widget.weight %></td>
-    <td><%= widget.color %></td>
+  	<td><%= widget.name %></td>
+  	<td><%= widget.weight %></td>
+  	<td><%= widget.color %></td>
     <td><%= link_to 'Show', widget %></td>
     <td><%= link_to 'Edit', edit_widget_path(widget) %></td>
     <td><%= link_to 'Destroy', widget, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -31,7 +31,7 @@
 <%#codecite search %>
 <form>
   <p>
-    <label for="search">Search</label>:<br />
+    <%= label_tag 'search' %><br/>
     <%= text_field_tag :search, params[:search] %>
   </p>
   <p>
