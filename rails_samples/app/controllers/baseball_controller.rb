@@ -18,10 +18,14 @@ class BaseballController < ApplicationController
   # codecite controllerquerycache
   def modify_team
     team = Team.find(params[:id])
+
     team2 = Team.find(params[:id])
     team2.name = "New Name"
     team2.save
+
     team3 = Team.find(params[:id])
+    
+    render :text => "Modified"
   end
   # codecite controllerquerycache
   

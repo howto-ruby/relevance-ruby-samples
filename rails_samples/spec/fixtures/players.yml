@@ -1,4 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# codecite many
+<% (1..200).each do |i| %>
+player_<%= i %>:
+  id: <%= i %>
+  name: Player <%= i %>
+  position: Random
+<% end %>
+# codecite many
+
 # codecite fixtures
 manny:
   name: Manny Ramirez
@@ -12,12 +21,4 @@ arod:
 jeter:
   name: Derek Jeter
   position: Infield
-    
 # codecite fixtures
-# codecite many
-<% (5..200).each do |i| %>
-player_<%= i %>:
-  name: Player <%= i %>
-  position: Random
-<% end %>
-# codecite many

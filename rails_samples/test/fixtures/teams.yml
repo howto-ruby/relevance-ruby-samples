@@ -1,4 +1,13 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+# codecite many
+<% (1..200).each do |i| %>
+team_<%= i %>:
+  id: <%= i %>
+  name: Team <%= i %>
+  City: Random
+<% end %>
+# codecite many
+
 # codecite fixtures
 redsox:
   name: Red Sox
@@ -6,13 +15,4 @@ redsox:
 yankees:
   name: Yankees
   city: New York
-
 # codecite fixtures
-
-# codecite many
-<% (3..200).each do |i| %>
-team_<%= i %>:
-  name: Team <%= i %>
-  City: Random
-<% end %>
-# codecite many
