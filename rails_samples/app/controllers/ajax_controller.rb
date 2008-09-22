@@ -36,18 +36,17 @@ class AjaxController < ApplicationController
   end
 
   def create
-    @widget = Widget.new(params[:widget])
     respond_to do |format|
+      format.html { redirect_to(widgets_url) }
+      @widget = Widget.new(params[:widget])
       if @widget.save
         flash[:notice] = "Widget #{@widget.name} was successfully created."
-        format.html { redirect_to(widgets_url) }
         format.js { render(:update) { |page|
           page.visual_effect(:blind_up, 'model_form', :duration=>1)
           page.replace_html 'model_error', 'Saved!'
           page.delay(2) { page.redirect_to(:controller => 'ajax') }
         }} 
       else
-        format.html { render :action => "new" }
         format.js { render(:update) { |page|
           page.replace_html 'model_error', error_messages_for('widget')
         }}
