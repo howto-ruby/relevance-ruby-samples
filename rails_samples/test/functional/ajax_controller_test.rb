@@ -1,14 +1,8 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'ajax_controller'
 
-# Re-raise errors caught by the controller.
-class AjaxController; def rescue_action(e) raise e end; end
+class AjaxControllerTest < ActionController::TestCase
 
-class AjaxControllerTest < Test::Unit::TestCase
   def setup
-    @controller = AjaxController.new
-    @request    = ActionController::TestRequest.new
-    @response   = ActionController::TestResponse.new
     @controller.stubs(:current_user)
   end
 

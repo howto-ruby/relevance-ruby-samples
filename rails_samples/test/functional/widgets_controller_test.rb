@@ -1,7 +1,4 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require "widgets_controller"
-
-class WidgetsController; def rescue_action(e) raise e end; end
 
 describe "Widgets Controller", ActionController::TestCase do
   tests WidgetsController
@@ -29,7 +26,7 @@ describe "Widgets Controller", ActionController::TestCase do
   end
 
   it "create widget" do
-    assert_difference(Widget, :count, 1) do
+    assert_difference("Widget.count") do
       post :create, :widget => {:name => "test", :color => "red" }
     end
 
@@ -52,7 +49,7 @@ describe "Widgets Controller", ActionController::TestCase do
   end
 
   it "destroy widget" do
-    assert_difference(Widget, :count, -1) do
+    assert_difference("Widget.count", -1) do
       delete :destroy, :id => 1
     end
 

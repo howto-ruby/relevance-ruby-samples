@@ -1,7 +1,4 @@
 require File.dirname(__FILE__) + '/../test_helper'
-require 'posts_controller'
-
-class PostsController; def rescue_action(e) raise e end; end
 
 describe "Posts Controller", ActionController::TestCase do
   tests PostsController
@@ -90,7 +87,7 @@ describe "Posts Controller", ActionController::TestCase do
   # codecite test_should_not_update_invalid_post
   
   def test_should_destroy_post
-    assert_difference(Post, :count, -1) do
+    assert_difference("Post.count", -1) do
       delete :destroy, :id => 1
     end
 

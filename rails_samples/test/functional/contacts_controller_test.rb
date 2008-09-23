@@ -20,7 +20,7 @@ describe "Contacts Controller", ActionController::TestCase do
 
   #codecite test_should_create_contact
   def test_should_create_contact
-    assert_difference(Contact, :count, 1) do
+    assert_difference("Contact.count") do
       post :create, :contact => { :first_name => "John", :last_name => "Doe"}
     end
 
@@ -30,7 +30,7 @@ describe "Contacts Controller", ActionController::TestCase do
 
   #codecite test_should_not_create_invalid_contact
   def test_should_not_create_invalid_contact
-    assert_difference(Contact, :count, 0) do
+    assert_difference("Contact.count", 0) do
       post :create, :contact => { }
     end
 
@@ -56,7 +56,7 @@ describe "Contacts Controller", ActionController::TestCase do
   end
 
   def test_should_destroy_contact
-    assert_difference(Contact, :count, -1) do
+    assert_difference("Contact.count", -1) do
       delete :destroy, :id => contacts(:justin).id
     end
 
