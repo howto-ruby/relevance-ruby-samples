@@ -1,7 +1,7 @@
 # codecite NORMALIZER
 module Palindrome
   NORMALIZER = Proc.new do |x|
-    x.to_s.gsub(/\s/,'').gsub(/[:punct:]/,'').downcase
+    x.to_s.gsub(/[^\d\w]/,'').downcase
   end
 end
 # codecite NORMALIZER

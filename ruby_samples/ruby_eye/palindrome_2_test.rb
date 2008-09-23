@@ -3,12 +3,14 @@ require 'palindrome_2'
 
 class Palindrome2Test < Test::Unit::TestCase
   include Palindrome
-  
+
   def test_string_palindrome
     assert('abba'.palindrome?)
     assert('ababa'.palindrome?)
     assert(!'boo'.palindrome?)
     assert(!'bobo'.palindrome?)
+    assert('bob ob'.palindrome?)
+    assert('b.,obob'.palindrome?)
   end
   
   def test_NORMALIZER
