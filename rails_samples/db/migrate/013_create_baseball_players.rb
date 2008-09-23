@@ -4,9 +4,8 @@ class CreateBaseballPlayers < ActiveRecord::Migration
     create_table :baseball_players do |t|
       t.string :first_name, :last_name
       t.float :batting_average
-      t.timestamps
-      # may someday be replaced by t.locking!
       t.integer :lock_version, :default => 0
+      t.timestamps
     end
   end
   # codecite self.up

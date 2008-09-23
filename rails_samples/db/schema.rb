@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(:version => 22) do
   end
 
   create_table "comments", :force => true do |t|
-    t.text     "body"
     t.integer  "user_id",          :limit => 11
     t.integer  "commentable_id",   :limit => 11
     t.string   "commentable_type"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,10 +64,10 @@ ActiveRecord::Schema.define(:version => 22) do
   end
 
   create_table "contracts", :force => true do |t|
-    t.integer  "salary",     :limit => 11
-    t.integer  "length",     :limit => 11
     t.integer  "player_id",  :limit => 11
     t.integer  "team_id",    :limit => 11
+    t.integer  "salary",     :limit => 11
+    t.integer  "length",     :limit => 11
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,8 +101,8 @@ ActiveRecord::Schema.define(:version => 22) do
   create_table "notes", :force => true do |t|
     t.string   "body"
     t.string   "signed_by"
-    t.integer  "notable_id",   :limit => 11
     t.string   "notable_type"
+    t.integer  "notable_id",   :limit => 11
     t.datetime "created_at"
     t.datetime "updated_at"
   end
