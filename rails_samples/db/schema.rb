@@ -25,9 +25,9 @@ ActiveRecord::Schema.define(:version => 22) do
     t.string   "first_name"
     t.string   "last_name"
     t.float    "batting_average"
+    t.integer  "lock_version",    :limit => 11, :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "lock_version",    :limit => 11, :default => 0
     t.integer  "home_runs",       :limit => 11
   end
 

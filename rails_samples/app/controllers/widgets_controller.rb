@@ -22,9 +22,15 @@ class WidgetsController < ApplicationController
   # codecite login
   def login
     if request.post?
+      # codecite session_username
       session[:username] = params[:name]
+      # codecite session_username
+      # codecite flash_welcome
       flash[:notice] = "Welcome, #{session[:username]}"
+      # codecite flash_welcome
+      # codecite redirect_to_index
       redirect_to widgets_url
+      # codecite redirect_to_index
     end
     # no else necessary, default behavior does what we want!
   end
