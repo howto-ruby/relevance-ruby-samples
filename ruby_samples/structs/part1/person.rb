@@ -15,16 +15,16 @@ class Person
   # codecite reader
   # codecite writer
   def first_name=(val)
-    @first_name=(val)
+    @first_name = val
   end
   def last_name=(val)
-    @last_name=(val)
+    @last_name = val
   end
   def age=(val)
-    @age=(val)
+    @age = val 
   end
   def email=(val)
-    @email=(val)
+    @email = val
   end
   # codecite writer
 end
