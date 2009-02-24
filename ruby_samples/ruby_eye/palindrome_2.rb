@@ -10,7 +10,7 @@ end
 module Palindrome::Extensions
   def palindrome?(&blk)
     blk = Palindrome::NORMALIZER unless block_given?
-    normalized = blk[self]
+    normalized = blk.call(self)
     normalized == normalized.reverse
   end
 end
