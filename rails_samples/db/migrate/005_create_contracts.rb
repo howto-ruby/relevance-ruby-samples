@@ -2,7 +2,8 @@
 class CreateContracts < ActiveRecord::Migration
   def self.up
     create_table :contracts do |t|
-      t.integer :player_id, :team_id, :salary, :length
+      t.integer :salary, :length
+      t.references :player, :team
       t.timestamps 
     end
   end
