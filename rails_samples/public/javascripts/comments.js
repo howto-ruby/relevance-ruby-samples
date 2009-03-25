@@ -7,7 +7,7 @@ Event.observe(window, "load", function() {
       parameters: Form.serialize(form),
       onSuccess: function(response) {
         $("comments").insert({
-          bottom: "<p>" + comment + "#{responseText}</p><hr/>";
+          bottom: "<p>" + comment + "#{responseText}</p><hr/>"
         });
       },
     });
