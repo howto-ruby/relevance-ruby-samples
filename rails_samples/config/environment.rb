@@ -53,9 +53,3 @@ Rails::Initializer.run do |config|
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory is automatically loaded
 end
-
-# codecite include FormBuilderExtensions
-ActionView::Helpers::FormBuilder.send :include, FormBuilderExtensions
-# codecite include FormBuilderExtensions
-
-

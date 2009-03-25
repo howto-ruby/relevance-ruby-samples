@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :teams, :has_many => :notes
+
+  map.resources :players, :has_many => :notes
+
+  # map.resources :notes
+
   # codecite requirements
   map.resources :widgets, :requirements => {:id => /\d+/}
   # codecite requirements

@@ -1,10 +1,5 @@
 module FormBuilderExtensions
   def labelled_field(type, field)
-    <<-END
-<p>
-<label>#{field.to_s.humanize}</label><br />
-#{self.send type, field}
-</p>
-END
+    "<p>#{label field}<br />#{self.send type, field}</p>"
   end
 end

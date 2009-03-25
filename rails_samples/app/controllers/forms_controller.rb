@@ -7,6 +7,10 @@ class FormsController < ApplicationController
     @post = Post.new
   end
   
+  def form_builder
+    @post = Post.new
+  end
+  
   def voldemort
     raise NameError
   end
