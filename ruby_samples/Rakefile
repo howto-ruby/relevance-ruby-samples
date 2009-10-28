@@ -1,0 +1,19 @@
+require 'rake'
+require 'spec/rake/spectask'
+
+desc "Run all specs"
+Spec::Rake::SpecTask.new('specs') do |t|
+  t.spec_files = FileList['spec/**/*.rb']
+  t.spec_opts = ["-c", "--format", "s"]
+end
+
+namespace :specs do
+
+  desc "Run all specs and generate HTML report"
+  Spec::Rake::SpecTask.new('report') do |t|
+    t.spec_files = FileList['spec/**/*.rb']
+    t.spec_opts = ["--format", "html:doc/specs.html", "--diff"]
+    t.fail_on_error = false
+  end
+
+end

@@ -43,7 +43,7 @@ end
 # codecite bang_delete_matches
 class String
   def delete_matches!(substr)
-    while pos = index(substr)
+    while pos = index(substr, pos || 0)
       self[pos, substr.size] = ''
     end
     self

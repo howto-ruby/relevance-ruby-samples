@@ -14,11 +14,9 @@ class SequenceTest < Test::Unit::TestCase
       assert_equal [1, 2], a;
       a.last+1
     end
-    s.generate_next
-    assert_equal 3, s.so_far.last
+    assert_equal 3, s.generate_next
     s = Sequence.new(2, 1) {|a| -a.last}
-    s.generate_next
-    assert_equal -1, s.so_far.last
+    assert_equal -1, s.generate_next
   end
   # codecite generate_next
   

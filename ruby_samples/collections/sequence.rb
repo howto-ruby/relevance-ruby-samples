@@ -18,7 +18,7 @@ class Sequence
   def [](idx)
     return nil if idx >= @size
     while idx >= @so_far.size
-      generate_next
+      @so_far << generate_next
     end
     @so_far[idx]
   end
@@ -26,7 +26,7 @@ class Sequence
   
   # codecite generate_next
   def generate_next
-    @so_far << @block.call(@so_far)
+    @block.call(@so_far)
   end
   # codecite generate_next
   
