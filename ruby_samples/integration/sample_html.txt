@@ -1,0 +1,15 @@
+This is the basic structure of the way Google News stories
+are marked up, with unimportant things edited out.
+
+<div class="headline-story">
+  <h2 class="title">
+    <a href="url">title text (with search term highlighted)</a>
+  </h2>
+  <div class="sub-title">
+    <span class="source">publication name</span>
+    <span class="date">how long ago</span>
+  </div>
+  <div class="body">
+    <div class="snippet">snippet text</div>
+  </div>
+</div>

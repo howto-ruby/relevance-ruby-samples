@@ -27,7 +27,7 @@ require 'rake/rdoctask'
 namespace :doc do
   desc "Generate documentation for the labs"
   Rake::RDocTask.new("labs") do |rdoc|
-    rdoc.rdoc_dir = 'doc'
+    rdoc.rdoc_dir = 'docs'
     rdoc.title    = "Lab Documentation"
     rdoc.options << '--line-numbers' << '--inline-source'
     rdoc.rdoc_files.include('**/*.rb')
@@ -35,12 +35,27 @@ namespace :doc do
 end
 # codecite rdoc
 
-# inspired by http://nubyonrails.com/articles/2006/07/28/foscon-and-living-dangerously-with-rake
+# codecite trule
+# inspired by http://nubyonrails.com/articles/foscon-and-living-dangerously-with-rake
 rule ".t" do |t|
-  if /(.*)\.([^.]+)\.t$/.match(t.name)
-    file_name = "test/#{$1}_test.rb"
+  if /^(.+)\.(\w+)\.t$/.match(t.name)
+    file_name = "#{$1}_test.rb"
+    matching_files = Dir["test/**/#{file_name}"]
+    raise "No file found for #{file_name}" if matching_files.empty?
     test_name = "test_#{$2}"
-    raise "No file found for #{file_name}" unless File.exist?(file_name)
-    sh "ruby #{file_name} -n #{test_name}"
+    arguments = matching_files + ['-n', test_name]
+    sh('ruby', *arguments)
   end
 end
+# codecite trule
+
+__END__
+# codecite skeleton
+rule ".t" do |t|
+end
+# codecite skeleton
+
+# codecite regexp
+  if /^(.+)\.(\w+)\.t$/.match(t.name)
+  end
+# codecite regexp

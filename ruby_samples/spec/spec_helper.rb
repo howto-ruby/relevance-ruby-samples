@@ -18,7 +18,6 @@ __END__
 root_dir = File.expand_path(File.dirname(__FILE__) + '/..')
 file_pattern = "#{root_dir}/**/*.rb"
 Dir.glob(file_pattern) do |fn|
-  puts fn
   require fn unless fn =~ %r{/(test|spec)/}
 end
 # codecite user_content

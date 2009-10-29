@@ -2,7 +2,11 @@ require 'test/unit'
 
 class SmokeTest < Test::Unit::TestCase
 
-  def test_tbd
-    fail "Add a real test"
+  def test_failing
+    flunk "Add a real test"
+  end
+  
+  def test_passing
+    assert_equal 1, 1.0
   end
 end
