@@ -1,0 +1,5 @@
+= tdd_samples
+
+These are samples for TDD labs and training
+
+Copyright (c) 2010 Relevance. See LICENSE for details.
