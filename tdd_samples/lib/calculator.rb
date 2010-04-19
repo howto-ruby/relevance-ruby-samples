@@ -217,4 +217,61 @@ class Calculator
       raise ParseError
     end
   end
+  
+  # codecite mock_in_out
+  attr_writer :instream, :outstream
+  
+  def instream
+    @instream ||= $stdin
+  end
+  
+  def outstream
+    @outstream ||= $stdout
+  end
+  # codecite mock_in_out
+  
+  # codecite prompt_read
+  def prompt_and_read
+    outstream.write('expr> ')
+    instream.gets.chomp
+  end
+  # codecite prompt_read
+  
+  # codecite read_respond
+  def read_and_respond
+    result = calc(prompt_and_read)
+    outstream.puts("=> #{result}")
+  end
+  # codecite read_respond
+  
+  # codecite ui_loop
+  def ui_loop
+    loop { read_and_respond }
+  end
+  # codecite ui_loop
+  
+  # codecite eof
+  def prompt_and_read
+    outstream.write('expr> ')
+    expr = instream.gets
+    throw :eof if expr.nil?
+    expr.chomp
+  end
+  
+  def ui_loop
+    catch(:eof) do
+      loop { read_and_respond }
+    end
+    outstream.puts
+  end
+  # codecite eof
+  
+  # codecite rescue
+  def read_and_respond
+    result = calc(prompt_and_read)
+    outstream.puts("=> #{result}")
+  rescue ParseError
+    outstream.puts("Invalid expression")
+  end
+  # codecite rescue
 end

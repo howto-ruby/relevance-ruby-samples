@@ -204,4 +204,165 @@ describe Calculator do
       # codecite assign_return
     end
   end
+  
+  # codecite mockparse
+  describe "#calc" do
+    describe "with valid input" do
+      
+      it "calls #parse with the passed expression" do
+        subject.expects(:parse).with("some expr")
+        subject.stubs(:evaluate)
+        subject.calc("some expr")
+      end
+    end
+  end
+  # codecite mockparse
+     
+  describe "#calc" do 
+    describe "with valid input" do
+      # codecite mockevaluate
+      it "calls #evaluate with the result of parse" do
+        subject.stubs(:parse).returns("some tree")
+        subject.expects(:evaluate).with("some tree")
+        subject.calc(:whatever)
+      end
+      # codecite mockevaluate
+      
+      # codecite mockresult
+      it "returns the result of #evaluate" do
+        subject.stubs(:parse)
+        subject.stubs(:evaluate).returns("some result")
+        subject.calc(:whatever).should == "some result"
+      end
+      # codecite mockresult
+    end
+    
+    # codecite mockerrorparse
+    describe "error handling" do
+      
+      it "allows an exception raised by #parse to continue" do
+        subject.stubs(:parse).raises(Calculator::ParseError)
+        proc { subject.calc(:whatever) }.should raise_error(Calculator::ParseError)
+      end
+    end
+    # codecite mockerrorparse
+      
+    describe "error handling" do
+      # codecite mockerrorevaluate
+      it "allows an exception raised by #evaluate to continue" do
+        subject.stubs(:parse)
+        subject.stubs(:evaluate).raises(Calculator::ParseError)
+        proc { subject.calc(:whatever) }.should raise_error(Calculator::ParseError)
+      end
+      # codecite mockerrorevaluate
+    end
+  end
+  
+  # codecite mock_in_out
+  describe "#instream" do
+    it "returns $stdin by default" do
+      subject.instream.should == $stdin
+    end
+    
+    it "can be set by #instream=" do
+      subject.instream = :some_stream
+      subject.instream.should == :some_stream
+    end
+  end
+  
+  describe "#outstream" do
+    it "returns $stdout by default" do
+      subject.outstream.should == $stdout
+    end
+    
+    it "can be set by #outstream=" do
+      subject.outstream = :some_stream
+      subject.outstream.should == :some_stream
+    end
+  end
+  
+  describe "user interface" do
+    before do
+      subject.stubs(:instream).returns(stub_everything)
+      subject.stubs(:outstream).returns(stub_everything)
+    end
+  end
+  # codecite mock_in_out
+      
+  describe "user interface" do
+    before do
+      subject.stubs(:instream).returns(stub_everything)
+      subject.stubs(:outstream).returns(stub_everything)
+    end
+    
+    # codecite prompt_read
+    describe "#prompt_and_read" do
+    
+      it "issues the prompt to outstream and reads a single-line expression from instream" do
+        prompt_and_read = sequence('prompt and read')
+      
+        subject.outstream.expects(:write).with("expr> ").in_sequence(prompt_and_read)
+        subject.instream.expects(:gets).returns("some expr\n").in_sequence(prompt_and_read)
+      
+        subject.prompt_and_read.should == "some expr"
+      end
+    end
+    # codecite prompt_read
+
+    # codecite read_respond
+    describe "#read_and_respond" do
+      it "reads an expression and prints the result" do
+        subject.expects(:prompt_and_read).returns("some expr")
+        subject.expects(:calc).with("some expr").returns("a result")
+        subject.outstream.expects(:puts).with("=> a result")
+        
+        subject.read_and_respond
+      end
+    end
+    # codecite read_respond
+    
+    # codecite ui_loop
+    describe "#ui_loop" do
+      it "calls #read_and_respond forever" do
+        subject.expects(:loop).multiple_yields([], [])
+        subject.expects(:read_and_respond).twice
+        subject.ui_loop
+      end
+    end
+    # codecite ui_loop
+    
+    describe "#read_and_respond" do
+      # codecite rescue
+      it "prints 'Invalid expression' in response to a ParseError" do
+        subject.stubs(:prompt_and_read).returns("some expr")
+        subject.expects(:calc).with("some expr").raises(Calculator::ParseError)
+        subject.outstream.expects(:puts).with("Invalid expression")
+        
+        subject.read_and_respond
+      end
+      # codecite rescue    
+    end
+    
+    # codecite eof
+    describe "#prompt_and_read" do
+      it "throws :eof when gets returns nil" do
+        subject.instream.stubs(:gets).returns(nil)
+        proc { subject.prompt_and_read }.should throw_symbol(:eof)
+      end
+    end
+    
+    describe "#ui_loop" do
+      it "quits when :eof is thrown" do
+        two_exprs = sequence("two exprs")
+        subject.instream.expects(:gets).returns("1+1").twice.in_sequence(two_exprs)
+        subject.instream.expects(:gets).returns(nil).in_sequence(two_exprs)
+        subject.expects(:calc).with("1+1").returns(2).twice
+        subject.outstream.expects(:puts).with().in_sequence(two_exprs)
+        
+        subject.ui_loop
+      end
+    end
+    # codecite eof
+  end
+  
 end
