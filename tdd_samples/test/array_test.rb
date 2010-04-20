@@ -27,24 +27,31 @@ class ArrayTest < Test::Unit::TestCase
   # codecite compact
   
   # codecite fetchindex
-  def test_fetch_index
-    assert_equal 2, [1, 2, 3].fetch(1)
-    assert_raises(IndexError) { [1, 2, 3].fetch(3) }
+  def test_fetch_with_index
+    letters = ['a', 'b', 'c']
+    assert_equal 'b', letters.fetch(1)
+    assert_raises(IndexError) { letters.fetch(3) }
   end
   # codecite fetchindex
   
   # codecite fetchdefault
   def test_fetch_with_default
-    assert_equal 2, [1, 2, 3].fetch(1, 4)
-    assert_equal 4, [1, 2, 3].fetch(3, 4)
+    letters = ['a', 'b', 'c']
+    assert_equal 'b', letters.fetch(1, 'z')
+    assert_equal 'z', letters.fetch(3, 'z')
   end
   # codecite fetchdefault
   
   # codecite fetchblock
   def test_fetch_with_block
-    assert_equal 2, [1, 2, 3].fetch(1){|index| flunk "Block should not have been called!" }
+    letters = ['a', 'b', 'c']
+    assert_equal 'b', letters.fetch(1){|index| flunk "Block should not have been called!" }
     
-    assert_equal 4, [1, 2, 3].fetch(3){|index| assert_equal 3, index; 4 }
+    result = letters.fetch(3) do |index|
+      assert_equal 3, index
+      'x'
+    end
+    assert_equal 'x', result
   end
   # codecite fetchblock
 end
