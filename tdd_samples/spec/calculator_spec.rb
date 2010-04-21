@@ -100,15 +100,15 @@ describe Calculator do
       subject.calc("3+2").should == 5
     end
 
-    it "adds two numbers" do
+    it "subtracts two numbers" do
       subject.calc("3-2").should == 1
     end
 
-    it "adds two numbers" do
+    it "multiplies two numbers" do
       subject.calc("3*2").should == 6
     end
 
-    it "adds two numbers" do
+    it "divides two numbers" do
       subject.calc("6/2").should == 3
     end
 
