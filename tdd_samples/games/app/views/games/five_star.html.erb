@@ -1,0 +1,20 @@
+<h1>Listing games</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Min players</th>
+    <th>Max players</th>
+    <th>Average hours</th>
+  </tr>
+
+<% @games.each do |game| %>
+  <tr>
+    <td><%=h game.name %></td>
+    <td><%=h game.min_players %></td>
+    <td><%=h game.max_players %></td>
+    <td><%=h game.average_hours %></td>
+    <td><%= link_to 'Show', game %></td>
+  </tr>
+<% end %>
+</table>

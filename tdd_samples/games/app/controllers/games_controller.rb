@@ -1,15 +1,23 @@
 class GamesController < ApplicationController
   # GET /games
   # GET /games.xml
+  # codecite index5star
   def index
-    @games = Game.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @games }
+    if params[:kind] == 'five_star'
+      @games = Game.with_average_rating(5).all
+      respond_to do |format|
+        format.html { render 'five_star' }
+      end
+    else
+      @games = Game.all
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render :xml => @games }
+      end
     end
   end
-
+  # codecite index5star
+  
   # GET /games/1
   # GET /games/1.xml
   def show
