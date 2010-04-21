@@ -2,18 +2,18 @@
 
 <table>
   <tr>
-    <th>User</th>
-    <th>Game</th>
     <th>Stars</th>
     <th>Comments</th>
+    <th>User</th>
+    <th>Game</th>
   </tr>
 
 <% @reviews.each do |review| %>
   <tr>
-    <td><%=h review.user_id %></td>
-    <td><%=h review.game_id %></td>
     <td><%=h review.stars %></td>
     <td><%=h review.comments %></td>
+    <td><%=h review.user %></td>
+    <td><%=h review.game %></td>
     <td><%= link_to 'Show', review %></td>
     <td><%= link_to 'Edit', edit_review_path(review) %></td>
     <td><%= link_to 'Destroy', review, :confirm => 'Are you sure?', :method => :delete %></td>

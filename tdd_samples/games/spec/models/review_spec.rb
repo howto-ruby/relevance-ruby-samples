@@ -3,10 +3,10 @@ require 'spec_helper'
 describe Review do
   before(:each) do
     @valid_attributes = {
-      :user_id => 1,
-      :game_id => 1,
       :stars => 1,
-      :comments => "value for comments"
+      :comments => "value for comments",
+      :user_id => 1,
+      :game_id => 1
     }
   end
 
