@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  min_players: 1
+  max_players: 1
+  average_hours: 1.5
+
+two:
+  name: MyString
+  min_players: 1
+  max_players: 1
+  average_hours: 1.5

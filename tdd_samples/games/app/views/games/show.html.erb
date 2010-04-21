@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%=h @game.name %>
+</p>
+
+<p>
+  <b>Min players:</b>
+  <%=h @game.min_players %>
+</p>
+
+<p>
+  <b>Max players:</b>
+  <%=h @game.max_players %>
+</p>
+
+<p>
+  <b>Average hours:</b>
+  <%=h @game.average_hours %>
+</p>
+
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

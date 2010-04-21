@@ -1,0 +1,23 @@
+<p>
+  <b>User:</b>
+  <%=h @review.user_id %>
+</p>
+
+<p>
+  <b>Game:</b>
+  <%=h @review.game_id %>
+</p>
+
+<p>
+  <b>Stars:</b>
+  <%=h @review.stars %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%=h @review.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>
