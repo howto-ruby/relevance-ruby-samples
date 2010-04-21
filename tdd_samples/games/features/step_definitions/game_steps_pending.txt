@@ -2,6 +2,6 @@ Given /^a game exists called "([^\"]*)"$/ do |arg1|
   pending # express the regexp above with the code you wish you had
 end
 
-Given /^the game has a rating close to (\d)$/ do |arg1|
+Given /^the game has a rating close to 5$/ do
   pending # express the regexp above with the code you wish you had
 end
