@@ -8,8 +8,11 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :age %><br />
-    <%= f.text_field :age %>
+    <%= f.label :date_of_birth %><br />
+    <%# codecite olddate %>
+    <%# I wonder how old the oldest board-gaming Internet user is? %>
+    <%= f.date_select :date_of_birth, :start_year => Time.now.year - 100 %>
+    <%# codecite olddate %>
   </p>
   <p>
     <%= f.submit 'Update' %>

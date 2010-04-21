@@ -13,11 +13,15 @@
   </p>
   <p>
     <%= f.label :user %><br />
-    <%= f.text_field :user %>
+    <%= f.select :user_id, 
+                 options_from_collection_for_select(User.all, :id, :name, f.object.user_id), 
+                 :include_blank => true %>
   </p>
   <p>
     <%= f.label :game %><br />
-    <%= f.text_field :game %>
+    <%= f.select :game_id, 
+                 options_from_collection_for_select(Game.all, :id, :name, f.object.game_id), 
+                 :include_blank => true %>
   </p>
   <p>
     <%= f.submit 'Update' %>
